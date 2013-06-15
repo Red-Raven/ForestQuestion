@@ -1,0 +1,3 @@
+Name: Ceramic Sword
+Damage: 12
+Range: 2

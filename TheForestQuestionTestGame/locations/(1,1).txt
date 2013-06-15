@@ -1,0 +1,7 @@
+general: You're standing in a feild.
+detail: You're in a medow full of flowers. It rolls away accross the hills.
+east: The view to the East is burry, but appears to be rocky and jagged.
+south: There is a river.
+west: A forest so thick one cannot navigate it.
+north: A thick forest. A small trail is visible.
+isAccessible: true

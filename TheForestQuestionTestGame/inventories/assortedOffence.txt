@@ -1,0 +1,3 @@
+armor: 
+potions: 
+weapons: ceramicSword, metalBow, silverSpear,

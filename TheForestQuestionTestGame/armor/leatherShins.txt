@@ -1,0 +1,2 @@
+name: Leather Shin Guards
+strength: 1

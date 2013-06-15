@@ -1,0 +1,7 @@
+worldSize: 4,4
+placeSize: 10,10
+currentPlace: 1,1
+currentLocation: 4,4
+weaponLimit: 5
+armorLimit: 10
+potionLimit: 10

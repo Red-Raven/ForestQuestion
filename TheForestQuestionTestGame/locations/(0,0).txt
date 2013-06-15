@@ -1,0 +1,8 @@
+general: 
+detail: 
+east: 
+south: 
+west: 
+north: 
+isAccessible:
+entities:

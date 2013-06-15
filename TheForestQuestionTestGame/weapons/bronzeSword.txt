@@ -1,0 +1,3 @@
+name: Bronze Sword
+range: 2
+damage: 5

@@ -1,0 +1,2 @@
+name: Carbon Chest Guard
+strength: 5

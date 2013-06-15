@@ -1,0 +1,3 @@
+Name: Metal Bow
+Damage: 7
+Range: 15

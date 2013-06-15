@@ -1,0 +1,4 @@
+name: Troll3
+maxhealth: 50
+health: 50
+inventory: assortedOffence

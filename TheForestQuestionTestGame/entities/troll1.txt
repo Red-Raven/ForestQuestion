@@ -1,0 +1,4 @@
+name: Troll 1
+maxhealth: 80
+health: 80
+inventory: simpleTroll

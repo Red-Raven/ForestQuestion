@@ -1,0 +1,3 @@
+armor: leatherChest, leatherShins,
+potions: 
+weapons: bronzeSword,

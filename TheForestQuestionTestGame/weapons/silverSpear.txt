@@ -1,0 +1,3 @@
+Name: Silver Spear
+Damage: 5
+Range: 10
