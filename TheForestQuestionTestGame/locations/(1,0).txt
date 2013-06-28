@@ -1,13 +1,18 @@
+name: trail entrance
 general: You're at the start of a trail that goes back into the woods.
 detail: The trail moves forwards for several yards are cuts sharply to the east. Little is visible through the trees.
 east: The trail continues to the East. You cannot see where it goes.
 south: The little medow where your journey began.
 west: The forest is too thick to see through.
 north: The trail moves forwards for a while before turning east. The trees ahead are very thick.
-isAccessible: true
 entities:
 null, null, null, null, null
 null, troll 2, null, null, troll 1
 null, null, null, null, null
 null, null, null, null, null
 null, null, null, null, null
+eastEntrance: 
+southEntrance: 
+westEntrance: 
+northEntrance: 
+isAccessible:

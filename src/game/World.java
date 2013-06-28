@@ -1,5 +1,7 @@
 package game;
 
+import java.nio.file.Paths;
+
 public class World {
 	
 	private Place[][] myPlaceGrid;
@@ -20,16 +22,16 @@ public class World {
 	
 	public Place getPlaceInDirection(Place currentPlace, String direction)
 	{
-		int x = currentPlace.getX();
-		int y = currentPlace.getY();
+		int x = currentPlace.getLocation().getX();
+		int y = currentPlace.getLocation().getY();
 		
 		if (direction.equals("East") && x + 1 < myLength)
 			return myPlaceGrid[x + 1][y];
 		else if (direction.equals("South") && y + 1 < myWidth)
 			return myPlaceGrid[x][y + 1];
-		else if (direction.equals("West") && x - 1 > 0 )
+		else if (direction.equals("West") && x - 1 >= 0 )
 			return myPlaceGrid[x - 1][y];
-		else if (direction.equals("North") && y - 1 > 0)
+		else if (direction.equals("North") && y - 1 >= 0)
 			return myPlaceGrid[x][y - 1];
 		return null;
 	}

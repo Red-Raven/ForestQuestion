@@ -1,21 +1,24 @@
 package game;
 
-public class MainClass {
+import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.Files;
+import java.io.IOException;
 
-	//will store all core variables
-	//the World variable
-	//current place in world
-	//the player
-	//game settings
-	//methods that generate all these variables
+public class MainClass {
 	
 	private World myGameWorld;
 	private Place myCurrentPlace;
+	private ActiveEntity myPlayer;
 	
-	public MainClass()
+	public MainClass() throws IOException
 	{
-		
-		
+		myPlayer = new ActiveEntity(Paths.get(MainClass.class.getResource("/") + "player.txt"));
+		Path gameInfoPath = Paths.get(MainClass.class.getResource("/") + "game.txt");
 	}
 	
 	/***   game management methods   ***/
@@ -32,7 +35,9 @@ public class MainClass {
 		}
 		else
 		{
+			myCurrentPlace.removeEntity(myPlayer.getEntityPoint());
 			myCurrentPlace = nextPlace;
+			myCurrentPlace.addEntity((Entity)myPlayer, myCurrentPlace.getEntrancePoint(direction));//<--twice?
 		}
 	}
 	

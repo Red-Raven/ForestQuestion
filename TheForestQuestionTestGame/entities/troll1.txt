@@ -1,4 +1,5 @@
 name: Troll 1
+inventory: simpleTroll
+point: 2,3
 maxhealth: 80
 health: 80
-inventory: simpleTroll

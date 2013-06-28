@@ -1,8 +1,15 @@
+name: 
 general: 
 detail: 
 east: 
 south: 
 west: 
 north: 
-isAccessible:
-entities:
+dimensions: 
+entities: 
+position: 
+eastEntrance: 
+southEntrance: 
+westEntrance: 
+northEntrance: 
+isAccessible: 
