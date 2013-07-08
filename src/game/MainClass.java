@@ -11,40 +11,32 @@ import java.io.IOException;
 
 public class MainClass {
 	
-	private World myGameWorld;
-	private Place myCurrentPlace;
-	private ActiveEntity myPlayer;
-	
-	public MainClass() throws IOException
-	{
-		myPlayer = new ActiveEntity(Paths.get(MainClass.class.getResource("/") + "player.txt"));
-		Path gameInfoPath = Paths.get(MainClass.class.getResource("/") + "game.txt");
-	}
-	
 	/***   game management methods   ***/
-	public void changePlace(String direction)
+	public static Place changePlace(World gameWorld, Place currentPlace, String direction, ActiveEntity player)
 	{
-		Place nextPlace = myGameWorld.getPlaceInDirection(myCurrentPlace, direction);
+		Place nextPlace = gameWorld.getPlaceInDirection(currentPlace, direction);
+		Point nextPlaceEntrancePoint = nextPlace.getEntrancePoint(direction);
 		if (nextPlace.equals(null))
 		{
 			System.out.println("Place not found.");
 		}
-		else if (!nextPlace.getIsAccessible())
+		else if (!nextPlaceEntrancePoint.equals(new Point(-1,-1)))
 		{
 			System.out.println("You can't go there.");
 		}
 		else
 		{
-			myCurrentPlace.removeEntity(myPlayer.getEntityPoint());
-			myCurrentPlace = nextPlace;
-			myCurrentPlace.addEntity((Entity)myPlayer, myCurrentPlace.getEntrancePoint(direction));//<--twice?
+			currentPlace.removeEntity(player.getEntityPoint());
+			nextPlace.addEntity((Entity)player, nextPlaceEntrancePoint);//<--twice?
+			return nextPlace;
 		}
+		return currentPlace;
 	}
 	
 	/*** combat methods ***/
-	public int getCalculatedDamage(Entity attacker, Entity attackee)
+	public static int getCalculatedDamage(Place currentPlace, Entity attacker, Entity attackee)
 	{	
-		double distance = myCurrentPlace.getDistance(attacker, attackee);
+		double distance = currentPlace.getDistance(attacker, attackee);
 		int armorStrengthTotal = attackee.getInventory().getTotalArmorStrength();
 		Weapon attackerWeapon = attacker.getInventory().getActiveWeapons(0);
 		int range = attackerWeapon.getRange();
@@ -63,4 +55,19 @@ public class MainClass {
 		//divide by armorStrengthTotal
 	}
 	
+	public static void main(String[] Args) throws IOException
+	{
+		int worldSizeLine = 0;
+		int placeSizeLine = 1;
+		int currentPlaceLine = 2;
+		int currentLocationLine = 3;
+		int weaponLimitLine = 5;
+		int armorLimitLine = 6;
+		int potionLimitLine = 7;
+
+		List<String> lines = Files.readAllLines(Paths.get(MainClass.class.getResource("/") + "game.txt"), StandardCharsets.UTF_8);
+		String currentPlaceCoords = lines.get(currentPlaceLine).substring(lines.get(currentPlaceLine).indexOf(" "));
+		Place currentPlace = new Place(Paths.get(MainClass.class.getResource("/") + "locations/(" + currentPlaceCoords + ").txt"));
+		ActiveEntity player = new ActiveEntity(Paths.get(MainClass.class.getResource("/") + "player.txt"));
+	}
 }
